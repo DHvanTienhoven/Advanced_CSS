@@ -1,0 +1,220 @@
+$padding: 2em;
+$radius: 1em;
+$margin: 0 5em;
+$font: 20px;
+$transition: .5s ease-in;
+
+body{
+    background: #c3cfe2;
+    font-family: Arial;
+    font-size: $font;
+    line-height: 150%;
+    box-sizing: border-box;
+    margin: 0
+}
+
+header{
+    position: fixed;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    background: grey;
+    color:white;
+    z-index:1;
+    padding: 2em 0;
+    box-shadow: 0 5px 5px 0 darkslategrey
+}
+
+h1{
+    font-size: 30px
+}
+
+.testimonial{
+    position: relative;
+    margin: auto;
+    border-radius: $radius;
+    width: 300px;
+    box-shadow: 17px 18px 19px -8px rgba(50, 77, 124, 0.45);
+    transition:$transition;
+    
+    &__txt{
+        position: relative;
+        background: white;
+        height: 12em;
+        padding: $padding;
+        border-top-left-radius: $radius;
+        border-top-right-radius: $radius;
+        
+        & img{
+            position: relative;
+            width: 100px;
+            display: block;
+            margin: 1em 3em;
+            border-radius: 50%;
+            border: solid white 5px;
+        }
+
+        &__img{
+            position: absolute;
+            top: 245px;
+        }
+    }
+
+    &__footer{
+        font-size: 16px;
+        background: #686de0;
+        color: white;
+        padding: $padding;
+        padding-top: 4.5em;
+        text-align: center;
+        border-bottom-left-radius: $radius;
+        border-bottom-right-radius: $radius;
+
+        &::first-line{
+            text-transform: uppercase
+        }
+    }
+
+    &__overlay{
+        position: absolute;
+        background: #8286f0;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        border-radius: $radius;
+        transition: 1s;
+        opacity:0;
+        display: flex;
+        align-items: center;
+        justify-content: center
+    }
+
+    &:hover .testimonial__overlay{
+        opacity:1
+    }
+
+    &:hover {
+        box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.28);
+    }
+
+    &--button{
+        background: #10135a;
+        border: solid 2px #a9abf5;
+        color: white;
+        width: 160px;
+        font-size: $font;
+        border-radius: .5em;
+        padding: .8em;
+        transition: $transition;
+
+        &:hover{
+            box-shadow: 0px 0px 10px 2px #dedff8;
+            background: #070a53
+        }
+
+        &:focus{
+            outline: none
+        }
+
+        &:active{
+            box-shadow: none
+        }
+    }
+}
+
+
+.container{
+    display: grid;
+    grid-template-columns: 100%;
+    grid-gap: 2em;
+    justify-content: center;
+    padding-top: 10em;
+    padding-bottom: 4em
+}
+
+.nav{
+    position: fixed;
+    top: 10em;
+    right: -3.5em;
+    display: flex;
+    flex-direction: column;
+
+    &__item{
+            color: white;
+            margin: .25em 0;
+            padding: .5em 2em .5em .5em;
+            font-size: 2em;
+            border-bottom-left-radius: 1.5em;
+            border-top-left-radius: 1.5em;
+            box-shadow: -8px 5px 8px 0px  rgba(0,0,0,0.28);
+            
+
+        &:hover{
+            transform: translateX(-1em);
+            transition: $transition;
+        }
+
+        &:hover i{
+            transform: rotate(-360deg);
+            transition: $transition
+        }
+
+        &:hover:nth-child(even) i{
+            transform: rotate(360deg)
+        }
+
+        & i{
+            transition: 0s
+        }
+        
+        &:active i{
+            text-shadow: 0 0 0.3em #8DE8FF;
+        
+        }
+
+        &--git{
+            background: #333;
+        }
+
+        &--twi{
+            background: #00aced;
+        }
+        
+        &--ins{
+            background: #d6249f linear-gradient(45deg, #405de6,  #5851db, #833ab4, #c13584,#e1306c,#fd1d1d)
+        }
+
+        &--fac{
+            background: #3b5998;
+        }
+    }
+}
+
+
+@media (min-width:768px){
+    h1{
+        font-size: 50px
+    }
+    .container{
+        margin: $margin;
+        grid-template-columns: 50% 50%;
+        padding-top:12em
+    }
+    .nav{
+        top: 12em
+    }
+}
+
+@media (min-width: 1024px){
+    .container{
+            margin: 0 2em;
+            grid-template-columns: 30% 30% 30%
+    }
+}
+
+@media (min-width: 1600px){
+    .container{
+        margin: 0 14em
+    }
+}
